@@ -26,9 +26,9 @@ Apollo GraphQL + NestJS
 ## Notes
 
 - Altair client is accessible at `http://localhost:3000/altair/`.
-- Log files will be created in the root directory - `gql-request-log.log` and `gql-error-log.log`. Each line in log files starts with an uuid which is generated and assigned to the request in the [`LoggingPlugin`](https://github.com/alireza-haddadi/tic-tac-toe-gql-nestjs/blob/42af71bcad2c52d7936298fdb10f609fc6776228/src/common/plugins/logging.plugin.ts#L14).
+- Log files will be created in the root directory - `gql-request-log.log` and `gql-error-log.log`. Each line in log files starts with an uuid which is generated and assigned to the request in the [`LoggingPlugin`](https://github.com/alireza-haddadi/tic-tac-toe-gql-nestjs/blob/83e9032dfe46d38e9f870b10e438824a92df3882/src/common/plugins/logging.plugin.ts#L14).
 - Since this repo serves a demo purpose:
-  1. Instead of a real persistance ORM, data are stored in an in-memory map object in the [`StorageService`](https://github.com/alireza-haddadi/tic-tac-toe-gql-nestjs/blob/42af71bcad2c52d7936298fdb10f609fc6776228/src/storage/storage.service.ts#L4).
+  1. Instead of a real persistance ORM, data are stored in an in-memory map object in the [`StorageService`](https://github.com/alireza-haddadi/tic-tac-toe-gql-nestjs/blob/83e9032dfe46d38e9f870b10e438824a92df3882/src/storage/storage.service.ts#L4).
   2. Passwords are stored as plain texts.
   3. Token refreshment scenario is not implemented.
 - `newMove` subscription is not protected by JWT gaurd. To do that at this moment, the context object of Apollo server should be modified significantly which is not within the scope of this challenge.
