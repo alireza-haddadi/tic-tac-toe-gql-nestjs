@@ -1,0 +1,74 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type SignupResponse {
+  message: String!
+}
+
+type LoginResponse {
+  accessToken: String!
+}
+
+type MoveResponse {
+  message: String!
+}
+
+type Game {
+  id: String!
+  title: String!
+  mode: String!
+  status: String!
+  next: String!
+  winner: String!
+  players: [String!]
+  moves: [String!]
+}
+
+type Move {
+  row: String!
+  col: String!
+  playerId: String!
+  gameId: String!
+}
+
+type Query {
+  getGame(id: String!): Game!
+  getGames: [Game!]!
+}
+
+type Mutation {
+  signup(data: SignupInput!): SignupResponse!
+  login(password: String!, username: String!): LoginResponse!
+  createGame(data: CreateGameInput!): Game!
+  joinGame(gameId: String!): Game!
+  playerMove(data: MakeMoveInput!): MoveResponse!
+}
+
+input SignupInput {
+  firstname: String!
+  lastname: String!
+  username: String!
+  password: String!
+}
+
+input CreateGameInput {
+  title: String!
+  mode: GameMode!
+}
+
+"""Different types of game mode"""
+enum GameMode {
+  single
+  multi
+}
+
+input MakeMoveInput {
+  gameId: String!
+  row: String!
+  col: String!
+}
+
+type Subscription {
+  newMove(gameId: String!): Move!
+}
